@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All Users</title>
+    <meta name="description" content="A really cool site!">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <h3>Welcome {{request.session.name}} </h3>
+    <p> We're going to build a cool application using an MVC framework</p></br></br></br>
+    <a href= "/manage" class="big_font">Manage Users</a></br>
+    <p>Using the application, you'll learn how
+        to add, remove, and edit users
+    </p></br></br>
+
+    <!-- WANT TO ROUTE TO THE MSG APP VIEWS -->
+    <a href= "/message" class="big_font">Leave Messages</a></br>
+    <p>Users will be able to leave a message for another
+        user using this application
+        Current limitation - can only leave messages for Stella :)
+    </p></br></br>
+    <a href= "/edit" class="big_font">Edit User Information</a></br>
+    <p>Admins will be able to edit users' information (email address, 
+        first name, last name, etc.)
+    </p></br></br>
+
+    <a href="/">Logout</a>
+
+    {% if messages %}
+        <ul class="messages"></br>
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit User</title>
+    <meta name="description" content="A really cool site!">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	<h1>Edit User {{user_id}} fdsfS</h1>
+    <form action="/{{user_id}}/update" method="post">
+        {% csrf_token %} 
+        <label for="first_name">First Name:</label></br>
+        <input type="text" class="entry" id="first_name" name="first_name" value={{ first_name }}></br>
+        <label for="last_name">Last Name:</label></br>
+        <input type="text" class="entry" id="last_name" name="last_name" value={{ last_name }} ></br>
+        <label for="email">Email:</label></br>
+        <input type="text" class="entry" id="email" name="email" value={{ email }}></br>
+        <input type="submit" class="button" value="Update">
+    </form>
+    <a href="/{{user_id}}">Show</a>
+    <a href="/{{user_id}}">Go Back</a>
+</body>
+</html>

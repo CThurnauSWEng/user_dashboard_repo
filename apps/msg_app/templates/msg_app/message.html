@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All Users</title>
+    <meta name="description" content="Messaging">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'msg_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <h3>Message for {{user.first_name}} {{user.last_name}}</h3>
+    <div>
+        <form action="/login" method="post">
+            {% csrf_token %} 
+            <label for="input_msg">Please leave a message for {{user.first_name}}</label></br>
+            <input type="text" class="input_msg" id="input_msg" name="input_msg"></br>
+            <input type="submit" class="button" value="Submit">
+        </form>
+    </div>
+    <p>{{msg.text}}</p>
+    <a href="/welcome">Home</a>
+
+    {% for msg in msgs %}
+        <p>{{ msg.text }}</p>
+    {% endfor %}
+
+    {% for error in request.session.errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+
+</body>
+</html>

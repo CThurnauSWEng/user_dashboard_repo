@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All Users</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	<h1>Users</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Created At</th>
+				<th>User Level</th>
+				{% if this_users_level == "Admin" %}
+					<th>Actions</th>
+				{% endif %}
+			</tr>
+		</thead>
+		<tbody>
+            {% for user in users %}
+			<tr>
+                <td>{{user.id}}</td>
+				<td>{{user.first_name}} {{user.last_name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.created_at}}</td>
+				<td>{{user.user_level}}</td>
+				{% if this_users_level == "Admin" %}
+					<td>  
+						<a href="/{{user.id}}">show</a> 
+						<a href="/{{user.id}}/delete">delete</a>            
+						<a href="/{{user.id}}/edit">edit</a>            
+					</td>
+				{% endif %}
+				</tr>
+            {% endfor %}
+
+		</tbody>
+    </table>
+    
+    <a href="/welcome">Home</a>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+h1 {
+    margin: 10px 0px 0px 15px;
+}
+p,label,input {
+    margin: 20px 20px 0px 15px;
+    display: inline-block;
+}
+a {
+    color: blue;
+    margin-left: 120px;
+    display: inline-block;
+}
+.button {
+    color: blue;
+    border: none;
+}
+#big_font {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+.li_red {
+    color: red;
+    font-size: 1.2em;
+    margin: 20px 20px 0px 15px;
+}
